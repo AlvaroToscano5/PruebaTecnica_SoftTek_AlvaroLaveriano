@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PruebaTecnica_SoftTek_AlvaroLaveriano.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -21,8 +22,22 @@ namespace PruebaTecnica_SoftTek_AlvaroLaveriano.Controllers
         [HttpGet]
         public IHttpActionResult GetAll()
         {
-            var customersFake = new string[] { "customer-1", "customer-2", "customer-3" };
-            return Ok(customersFake);
+            var products = new List<Ventas> { 
+                new Ventas { producto = "Producto 1",
+                             cantidad = "2",
+                             impUnitario = "10",
+                             impTotal = "20"},
+                new Ventas { producto = "Producto 2",
+                             cantidad = "5",
+                             impUnitario = "15",
+                             impTotal = "75"},
+                new Ventas { producto = "Producto 3",
+                             cantidad = "10",
+                             impUnitario = "5",
+                             impTotal = "50"}
+            };
+
+            return Ok(products);
         }
     }
 }
